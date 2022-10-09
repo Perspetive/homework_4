@@ -1,23 +1,25 @@
 import java.util.Scanner;
-
-class NumberDigits {
-    public static void SumOfSeven(int enter_number, int finish_number) {
-        int  sum = 0;
-        int result = 0;
-        for (int num = enter_number; num <= finish_number; num++) {
-            if (num % 7 == 0){
-                sum+=num%10;
-                sum = sum + num / 10;
-                result += sum;
-                sum = 0;
+class MyArrays{
+    public static double avgOf4Digit( int[] array) {
+        double average = 0.0;
+        if (array.length > 0) {
+            double sum = 0.0;
+            for ( int i = 0; i < array.length; i++){
+                sum+=array[i];
             }
+            average = sum / array.length;
         }
-        System.out.println(result);
+        return average;
     }
 }
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        NumberDigits.SumOfSeven(in.nextInt(),in.nextInt());
+        int array_length = in.nextInt();
+        int[] stock_array = new int[array_length];
+        for(int j = 0; j<array_length; j++){
+            stock_array[j] = in.nextInt();
+        }
+        System.out.println(MyArrays.avgOf4Digit(stock_array));
     }
 }
